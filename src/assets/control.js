@@ -1,6 +1,6 @@
 var tdm_server_socket;
 
-$(function() {
+$(function () {
   var socket = io.connect(location.hostname);
   socket.on('server_hello', server_hello_handler);
   socket.on('client_list', client_list_handler);
@@ -11,15 +11,9 @@ $(function() {
 
 function server_hello_handler(data) {
   tdm_server_socket = this;
-  tdm_server_socket.emit('control_client_hello',
-                         {user_agent: navigator.userAgent});
-  $('#client_name_div').empty();
-  $('#client_name_div').append(
-      '<h2>Control Client Name: ' + data.client_name + '</h2>');
-  $('#server_status_div').empty();
-  $('#server_status_div').append(
-      '<h2 style="color:green">Connected to Server: ' +
-      data.server_name + '</h2>');
+  tdm_server_socket.emit('control_client_hello', {user_agent: navigator.userAgent});
+  $('#client_name_div').html('<h2>Control Client Name: ' + data.client_name + '</h2>');
+  $('#server_status_div').html('<h2 style="color:green">Connected to Server: ' + data.server_name + '</h2>');
 }
 
 function redirect_url_handler(data) {
@@ -27,9 +21,7 @@ function redirect_url_handler(data) {
 }
 
 function disconnect_handler() {
-  $('#server_status_div').empty();
-  $('#server_status_div').append(
-      '<h2 style="color:red">Server Disconnected.</h2>');
+  $('#server_status_div').html('<h2 style="color:red">Server Disconnected.</h2>');
 }
 
 function client_list_handler(data) {
@@ -45,13 +37,13 @@ function client_list_handler(data) {
     return;
   }
 
-  for (var client in clients) {
+  $.each(clients, function (client) {
     li = '<li> <input type="checkbox" name="checkboxlist" ' +
-        'class="client" value="' +
-        client + '" />' + client + ': <span class="ua">' +
-            clients[client].user_agent + '</span></li>';
+      'class="client" value="' +
+      client + '" />' + client + ': <span class="ua">' +
+      clients[client].user_agent + '</span></li>';
     ul.append(li);
-  }
+  });
 }
 
 function message_handler(data) {
@@ -63,7 +55,7 @@ function message_handler(data) {
 
 function go() {
   var checked_client_list = [];
-  $('input:checked').map(function() {
+  $('input:checked').map(function () {
     checked_client_list.push(this.value);
   });
   url = $('#redirect_url').val();
