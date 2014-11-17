@@ -1,0 +1,11 @@
+extends layout
+
+block imports
+    link(rel='stylesheet', href='/css/client.css')
+    link(rel='import', href='components/core-header-panel/core-header-panel.html')
+    script(src='/js/client.js')
+block content
+    core-header-panel(mode='waterfall')
+        div#status.core-header offline
+        pre.log
+

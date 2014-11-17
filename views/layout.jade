@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    script(src='/components/platform/platform.js')
+    script(src='/js/socket.io.js')
+    script(src='/components/jquery/dist/jquery.min.js')
+    script(src='/components/underscore/underscore.js')
+    script(src='/components/backbone/backbone.js')
+    script(src='/components/traceur/traceur.js')
+    block imports
+  body(fullbleed, layout, vertical)
+    block content

@@ -11,34 +11,7 @@ var config = require('./../config.json');
 server.listen(config.listen_port);
 io.set('log level', 1);
 
-function handler(req, res) {
-  var pathname = url.parse(req.url).pathname;
-  if (pathname == '/favicon.ico') {
-    res.writeHead(404);
-    return res.end('Not Found.');
-  }
 
-  else if (pathname == '/client.js') {
-    res.writeHead(200, {'Content-Type': 'text/javascript'});
-  } else if (pathname == '/control.js') {
-    res.writeHead(200, {'Content-Type': 'text/javascript'});
-  } else if (pathname == '/control.html' || pathname == '/control') {
-    pathname = '/control.html';
-    res.writeHead(200, {'Content-Type': 'text/html'});
-  } else {
-    pathname = '/index.html';
-    res.writeHead(200, {'Content-Type': 'text/html'});
-  }
-
-  fs.readFile([__dirname, '/assets', pathname].join(''),
-    function (err, data) {
-      if (err) {
-        res.writeHead(500);
-        return res.end('Error loading: ' + pathname);
-      }
-      res.end(data);
-    });
-}
 
 function Client(socket, user_agent, control_client) {
   logger.info('New %sclient %s', control_client ? 'control ' : '', user_agent);

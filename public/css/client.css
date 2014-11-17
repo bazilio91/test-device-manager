@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+}
+
+core-header-panel {
+    height: 100%;
+}
+
+.core-header {
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    padding: 0 10px;
+    color: #FFF;
+    transition: height 0.2s;
+}
+
+#status {
+    background-color: #666;
+}
+
+#status.connected {
+    background-color: green;
+}
+
+.log {
+    padding: 10px;
+    margin: 0;
+}

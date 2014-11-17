@@ -4,7 +4,7 @@
   "description": "Keep-alive test browsers and redirect them to a test server on command.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gdewan/test-device-manager.git"
+    "url": "https://github.com/bazilio91/test-device-manager.git"
   },
   "keywords": [
     "test-device-manager",
@@ -15,9 +15,16 @@
     "email": "gdewan@gmail.com"
   },
   "dependencies": {
+    "bluebird": "^2.3.2",
+    "debug": "~0.7.4",
+    "jade": "~1.3.0",
+    "koa-locals": "^0.3.0",
+    "koa-views": "^2.1.0",
     "lodash": "^2.4.1",
     "log4js": "^0.6.20",
-    "socket.io": "~0.9.13"
+    "morgan": "~1.0.0",
+    "socket.io": "^1.1.0",
+    "useragent": "^2.1.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5"
@@ -25,7 +32,5 @@
   "peerDependencies": {},
   "license": "MIT",
   "contributors": [],
-  "readme": "",
-  "_id": "test-device-manager@0.0.1",
-  "_from": "test-device-manager"
+  "readme": ""
 }

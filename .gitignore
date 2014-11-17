@@ -1,4 +1,24 @@
-# IDE
-/.idea
-/test-device-manager.iml
+# phpstorm project files
+.idea
+*.iml
 
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+/node_modules
+/public/components
+/coverage
+/npm-debug.log
+
+newrelic.js
